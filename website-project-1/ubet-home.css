@@ -1,0 +1,189 @@
+body {
+
+	background-color: rgb(227, 235, 247);
+	font-family: Helvetica;
+}
+
+.header {
+
+	position: relative;
+	box-sizing: border-box;
+	background-color: rgb(133, 102, 173);
+	height: 200px;
+	width: 100%;
+	margin: -10px 0 0px -10px;
+	padding: 10px 5px 5px 10px;
+
+}
+
+.subheader {
+
+	box-sizing: border-box;
+	width: 100%;
+	margin: -15px 0 0px -10px;
+	background-color: blue;
+	padding: 0px;
+	border: 0px 0px 1px 0px rgb(133, 102, 173);
+}
+
+.content-box {
+
+	width: 75%;
+	margin: 75px auto;
+}
+
+p#logo {
+	position: absolute;
+	bottom: 0px;	
+}
+
+p#logo img {
+	
+	height: 10%;
+	width: 10%;
+}
+
+#catchphrase {
+
+	position: absolute;
+	color: white;
+	font-size: 32px;
+	width: 20em;
+	top: 1px;
+	left: 25%;
+
+}
+
+.log-process {
+
+	position: absolute;
+	right: 2%;
+	bottom: 20px;
+
+	/*float: left;*/
+}
+
+.logsign {
+
+	color: white;
+	border: 1px solid gray;
+	text-align: center;
+	padding: 10px 30px;
+	margin: 0px 5px;
+	border-radius: 5px;
+	font-size: 16px;
+	box-shadow: 5px gray;
+}
+
+#login {
+
+	background-color: rgba(255,255,255,0.5);
+}
+
+#login:hover {
+
+	background-color: rgba(50,50,50,0.5);
+}
+
+.h-list {
+
+	background-color: rgb(252, 252, 252);
+	padding: 15px 30px;	
+	text-align: center;
+}
+
+.h-list li {
+
+	display: inline;
+	background-color: white;
+	font-size: 16px;
+	font-weight: 200;
+	width: 15%;
+	margin: 0px -3px;
+	text-align: center;
+	padding: 15px 30px;	
+
+}
+
+.h-list li:hover {
+
+	border-bottom-color:rgb(133, 102, 173);
+	border-bottom-width: 10px;
+}
+
+.h-list li:nth-child(even) {
+
+	border-style:solid;
+	border-color:rgb(219, 221, 224);
+	border-width: 0px 0px 0px 1px;
+
+}
+
+.h-list li:nth-child(odd) {
+
+	border-style:solid;
+	border-color:rgb(219, 221, 224);
+	border-width: 0px 1px 0px 0px;
+
+}
+
+
+div.event-box {
+
+	box-sizing: border-box;
+	width: 300px;
+	float: left;
+	margin: 0px 10px 0px 0px;
+	border-radius: 5px;
+	border: 2px solid rgb(219, 221, 224);
+}
+
+div.event-box p {
+
+	box-sizing: border-box;
+	padding: 10px 10px;
+	margin: -2px 0px;
+}
+
+.image-bottom {
+
+	position: relative;
+	background-color: rgb(1,1,1,0.3);
+	bottom: 0px;
+	right: 0px;
+}
+
+.event-name {
+
+	background-color: white;
+	width: 100%
+}
+
+
+.event-metadata {
+
+	color: rgb(	102, 117, 127);
+	font-size: 13px;
+	padding: 0px;
+}
+
+.image-box {
+
+	width: 300px;
+	height: 300px;
+	position: relative;
+}
+
+.image-box p {
+
+	color: rgb(41, 204, 32);
+	width: 100%;
+	background-color: rgba(1,1,1, 0.5);
+	padding: 0px;
+	box-shadow: -1px -1px 3px black;
+	text-shadow: 2px 1px black;
+	font-size: 32px;
+	position: absolute;
+	bottom: 0px;
+	text-align: right;
+}
