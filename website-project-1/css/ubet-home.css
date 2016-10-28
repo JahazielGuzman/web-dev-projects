@@ -9,7 +9,7 @@ body {
 	position: relative;
 	box-sizing: border-box;
 	background-color: rgb(133, 102, 173);
-	height: 200px;
+	height: 150px;
 	width: 100%;
 	margin: -10px 0 0px -10px;
 	padding: 10px 5px 5px 10px;
@@ -34,7 +34,8 @@ body {
 
 p#logo {
 	position: absolute;
-	bottom: 0px;	
+	bottom: 0px;
+	left: 10%;
 }
 
 p#logo img {
@@ -95,6 +96,7 @@ p#logo img {
 .h-list li {
 
 	display: inline;
+	box-sizing: border-box;
 	background-color: white;
 	font-size: 16px;
 	font-weight: 200;
@@ -105,11 +107,6 @@ p#logo img {
 
 }
 
-.h-list li:hover {
-
-	border-bottom-color:rgb(133, 102, 173);
-	border-bottom-width: 10px;
-}
 
 .h-list li:nth-child(even) {
 
@@ -123,8 +120,18 @@ p#logo img {
 
 	border-style:solid;
 	border-color:rgb(219, 221, 224);
-	border-width: 0px 1px 0px 0px;
+	border-width: 0px 0px 0px 1px;
 
+}
+
+.h-list li:nth-child(1) {
+
+	border-width: 0px;
+} 
+
+.h-list li:hover {
+
+	box-shadow: 0px -5px 1px rgb(133, 102, 173) inset;
 }
 
 
@@ -155,6 +162,7 @@ div.event-box p {
 
 .event-name {
 
+	box-sizing: border-box;
 	background-color: white;
 	width: 100%
 }
@@ -169,6 +177,7 @@ div.event-box p {
 
 .image-box {
 
+	box-sizing: border-box;
 	width: 300px;
 	height: 300px;
 	position: relative;
@@ -176,6 +185,7 @@ div.event-box p {
 
 .image-box p {
 
+	box-sizing: border-box;
 	color: rgb(41, 204, 32);
 	width: 100%;
 	background-color: rgba(1,1,1, 0.5);
