@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(event) { 
   //do work
 
-	var imageHover = document.getElementsByClassName("image-box");
+	var imageHover = document.getElementsByClassName("event-box");
 
 	var num_images = imageHover.length;
 
