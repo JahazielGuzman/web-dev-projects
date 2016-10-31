@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 	 }
 
-	 // show image-bottom when hover
+	 // show image-bottom when hover over image-box
 	function clicked(e) {
 
 		var bottom = e.target.parentNode.getElementsByClassName("image-bottom")[0];
