@@ -8,24 +8,26 @@
 	</head>
 	<body>
 			<div class="header">
-				<p id="logo">
-					<img src="images/ubet-logo.png" alt="ubet-logo" name="ubet">
-				</p>
-				<!--
-				<span id="catchphrase"> 
-					Give Nostradamus a run for his money, and make money doing it!</span> -->
+				<div id="" style="width:70%;position:relative;margin:0 auto;">
+					<p id="logo">
+						<img src="images/ubet-logo.png" alt="ubet-logo" name="ubet">
+					</p>
+					<!--
+					<span id="catchphrase"> 
+						Give Nostradamus a run for his money, and make money doing it!</span> -->
 					<div class="log-process">
-				<span class="logsign">
-					Sign up
-				</span>
-				<span class="logsign" id="login">
-					Log in
-				</span>
+						<button type="button" class="logsign" id="signup">
+							Sign up
+						</button>
+						<button type="button" class="logsign" id="login">
+							Log in
+						</button>
+					</div>
 				</div>
 			</div>
 			<div class="subheader">
 			<ul class="h-list">
-				<li>S</li>
+				<li><img id="search-icon" src="images/magnify.png" alt="search icon"></li>
 
 				<li>Sports</li>
 				<li>News</li>
@@ -39,55 +41,135 @@
 			</div>
 			
 			<div class="content-box">
-			<p id="events">
-				Events &#0149; view all
-			</p>
+				<p id="events">
+					Events &#0149; view all
+				</p>
 
-			<div class="event-div">
-				<div class="event-box">
-					<p class="event-name">
-						Trump becomes POTUS...
-						<br />
-						<span class="event-metadata">Politics &#0149; 25 minutes ago</span>
-					</p>
+				<!-- the div.event-div will store the 3 main events and a sign up div-->
+				<div id="event-div">
+					<div class="event-box">
+						<p class="event-name">
+							Trump becomes POTUS...
+							<br />
+							<span class="event-metadata">Politics &#0149; 25 minutes ago</span>
+						</p>
 
-					<div class="image-box" id="trump">
-						<img src="http://media.npr.org/assets/img/2016/09/26/firstdebatesidebyside_sq-08e05f84d06bb2a39af764f44a81f58b4d8a3e03-s300-c85.jpg" alt="trump" title="trump">
-						<div class="image-bottom"><p class="show-me-the-money">$12,500</p></div>
+						<div class="image-box" id="trump">
+							<img src="http://media.npr.org/assets/img/2016/09/26/firstdebatesidebyside_sq-08e05f84d06bb2a39af764f44a81f58b4d8a3e03-s300-c85.jpg" alt="trump" title="trump">
+							<div class="image-bottom"><p class="show-me-the-money">$12,500</p></div>
+						</div>
 					</div>
-				</div>
-				<div class="event-box">
-					<p class="event-name">
-						Brad and Jenn get back together...
-						<br />
-						<span class="event-metadata">Gossip &#0149; 1 week ago </span>
-					</p>
-					<div class="image-box">
-						<img src="http://www.eonline.com/eol_images/Entire_Site/2011816/300.anipitt.lc.091611.jpg" >
-						<p>$6,700</p>
+					<div class="event-box">
+						<p class="event-name">
+							Brad and Jenn get back together...
+							<br />
+							<span class="event-metadata">Gossip &#0149; 1 week ago </span>
+						</p>
+						<div class="image-box">
+							<img src="http://www.eonline.com/eol_images/Entire_Site/2011816/300.anipitt.lc.091611.jpg" >
+							<div class="image-bottom">
+								<p>$6,700</p>
+							</div>
+						</div>
 					</div>
-				</div>
-				<div class="event-box">
-					<p class="event-name">
-						The moon turns orange...
-						<br />
-						<span class="event-metadata">Nature &#0149; 2 months ago </span>
-					</p>
-					<div class="image-box" >
-						<img src="https://s-media-cache-ak0.pinimg.com/736x/ca/2f/5f/ca2f5f0dc5d7c4bb87eea81249cebef2.jpg" >
-						<p>$2,050</p>
+					<div class="event-box">
+						<p class="event-name">
+							The moon turns orange...
+							<br />
+							<span class="event-metadata">Nature &#0149; 2 months ago </span>
+						</p>
+						<div class="image-box" >
+							<img src="https://s-media-cache-ak0.pinimg.com/736x/ca/2f/5f/ca2f5f0dc5d7c4bb87eea81249cebef2.jpg" >
+							<div class="image-bottom">
+								<p>$2,050</p>
+							</div>
+						</div>
 					</div>
+					<div class="event-box" id="sign-in-text">
+						<p id="sign-up-main-text">
+							Nack for telling the
+							future? 
+						</p>
+						<p id="sign-up-sub-text">sign up and make some money doin it!</p>
+						<br />
+						<button class="logsign" id="sign-up-2">Sign up</button>
+					</div>
+					<div style="clear:both;"></div>
 				</div>
-				<div class="event-box" id="sign-in-text">
-					<p>
-						Nack for telling the
-						future? 
-						<br />
-						<br />
-						sign up and make some money today!
-					</p>
+				<p class="featured-text">
+					<p>Featured</p>
+					<hr>
+				</p>
+				<!-- div.featured-events will store all featured events with corresponding hashtag at the top -->
+				<div id="featured-box">
+
+					<div class="event-box featured-column">
+
+						<div>
+							<p>
+								Trending
+							</p>
+							<div class="event-box featured-event-box">
+								<div class="event-box featured-event-image">
+									<img src="https://files.slack.com/files-pri/T2K6BM5BL-F2V30EC77/pasted_image_at_2016_10_27_11_39_am.png" alt="Kim K">
+								</div>
+								<div class="event-box featured-event-text">
+									<p>
+										
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div>
+							<p>
+								Sports
+							</p>
+							<div class="event-box featured-event-box">
+								<div class="event-box featured-event-text">
+									<p>
+										
+									</p>
+								</div>
+								<div class="event-box featured-event-image">
+									<p>
+									</p>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="event-box featured-column">
+
+						<div class="event-box featured-event-image">
+							<p>
+								#KimKrobbery
+							</p>
+						</div>
+						<div class="event-box featured-event-text">
+							<p>
+								Fashion
+							</p>
+						</div>
+					</div>
+					
+					<div class="event-box featured-column">
+						<div class="event-box featured-event-image">
+							<p>
+								#Armagedon2017
+							</p>
+						</div>
+						<div class="event-box featured-event-image">
+							<p>
+								#StrangerThingsS2
+							</p>
+						</div>
+					</div>
+					
+					<div style="clear:both"></div>
+				
 				</div>
 			</div>
-		
 	</body>
 </html> 
