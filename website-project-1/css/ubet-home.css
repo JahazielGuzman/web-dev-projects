@@ -197,7 +197,7 @@ div.event-box p {
 	position: relative;
 	color: rgb(	102, 117, 127);
 	font-size: 13px;
-	padding: 0px;
+	padding: 5px 5px;
 }
 
 .image-box {
@@ -306,11 +306,12 @@ div.featured-event-image img {
 div.featured-event-text {
 
 	background-color: white;
-	height: 125px;
+	height: auto;
 	float:none;
 	clear: none;
 	margin: 0px;
 	border: 0px;
+	font-weight: 300;
 
 }
 
@@ -334,19 +335,19 @@ div.event-host-name {
 
 .event-bottom-buttons {
 
-
+	padding: 0px 5px 5px 5px;
 }
 
 .event-button {
 
 	float: left;
-	margin: 0px 2px;
+	margin: 0px 10px;
 }
 
 .event-button-image {
 
-	width: 30px;
-	height: 30px;
+	width: 20px;
+	height: 20px;
 }
 
 .event-button-data {
