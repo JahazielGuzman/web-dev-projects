@@ -377,6 +377,11 @@ div.event-host-name {
 
 	}
 
+	p#logo {
+		position: absolute;
+		top: -10px;
+	}
+
 	p#logo img {
 		
 		height: 30%;
@@ -385,6 +390,7 @@ div.event-host-name {
 
 	.subheader {
 
+		display: none;
 		box-sizing: border-box;
 		width: 25%;
 		margin: -15px 0 0px -10px;

@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 	var num_images = imageHover.length - 1; // remove the last element because it does not have an img
 
+	var menuButton = document.getElementById("mobile-menu-button");
+
 	for (var i = 0; i < num_images; i ++) {
 
 		eventListener(imageHover[i], "mouseover", mouseOverCallback);
@@ -16,6 +18,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	} 
 
 	// show image-bottom when hover over image-box
+
+	if (menuButton)
+		eventListener(menuButton, "click", showMenuOnMobile);
 
 });
 
@@ -30,6 +35,16 @@ function mouseOutCallback(target) {
 	
 	var bottom = target.getElementsByClassName("image-bottom")[0];
 	bottom.style.visibility = "hidden";
+}
+
+function showMenuOnMobile() {
+
+	var mobileMenu = document.getElementsByClassName("subheader")[0];
+
+	if (mobileMenu) {
+
+		mobileMenu.style.display = (mobileMenu.style.display === "none") ? "block" : "none";
+	}
 }
 
 function eventListener(element, event, callback) {
