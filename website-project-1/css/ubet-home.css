@@ -7,24 +7,36 @@ body {
 
 .header {
 
+	position: fixed;
 	box-sizing: border-box;
 	background-color: rgb(133, 102, 173);
 	height: 150px;
 	width: 100%;
 	margin: -10px 0 0px -10px;
 	padding: 10px 5px 5px 10px;
+	z-index: 100;
+	top: 0px;
 
 }
 
 .subheader {
 
+	display: block;
+	position: fixed;
 	box-sizing: border-box;
 	width: 100%;
 	margin: -60px 0 0px -10px;
 	background-color: blue;
 	padding: 0px;
 	border: 0px 0px 1px 0px rgb(133, 102, 173);
-	z-index: 100;
+	z-index: 50;
+}
+
+#master-header {
+
+
+	width: 100%;
+	top: 0px;
 }
 
 .content-box {
@@ -296,8 +308,7 @@ div.featured-event-image {
 
 
 	height: auto;
-	float:none;
-	clear: none;
+
 	margin: 0px;
 	border: 0px;
 }
@@ -355,13 +366,16 @@ div.event-host-name {
 
 	width: 20px;
 	height: 20px;
+	float: left;
 }
 
 .event-button-data {
 
-	margin: 2px 0px;
+	margin: 2px 0px 2px 5px;
 	color: grey;
-	font-size: 16px
+	font-size: 14px;
+	vertical-align: middle;
+	float: left;
 }
 
 @media screen and (max-width: 800px) {
