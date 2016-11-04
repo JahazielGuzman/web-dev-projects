@@ -471,13 +471,57 @@ div.event-host-name {
 		margin: 75px auto;
 	}
 
+	.event-div {
+
+		height: auto;
+	}
+
+	.featured-column {
+
+		height: auto;
+	}
+
 	.event-div div, .featured-column > div {
 
 		float: none;
 		margin: 0px auto;
 	}
 
+	div.event-box {
+
+		width: 100%;
+	}
+
+	.event-host-image {
+
+		margin: 0px auto;
+	}
+
+	.featured-event-box {
+
+		background-color: white;
+	}
+
+	div.featured-event-image {
+		width: 30%;
+		float: left;
+	}
+
+	div.featured-event-image > img {
+
+		width: 100%;
+	}
+
+	div.featured-event-text {
+
+		width: 70%;
+		float: left;
+	}
 }
+
+
+
+
 
 
 
