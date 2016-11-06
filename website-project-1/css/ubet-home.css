@@ -1,7 +1,8 @@
 body {
 
-	background-color: rgb(227, 235, 247);
+	background-color: rgb(245,248,250);
 	font-family: Helvetica;
+	font-weight: 200;
 	width: 100%;
 }
 
@@ -14,7 +15,6 @@ body {
 	width: 100%;
 	margin: -10px 0 0px -10px;
 	padding: 10px 5px 5px 10px;
-	z-index: 100;
 	top: 0px;
 
 }
@@ -25,11 +25,11 @@ body {
 	position: fixed;
 	box-sizing: border-box;
 	width: 100%;
+	height: 75px;
 	margin: -60px 0 0px -10px;
-	background-color: blue;
 	padding: 0px;
 	border: 0px 0px 1px 0px rgb(133, 102, 173);
-	z-index: 50;
+	top: 125px;
 }
 
 #master-header {
@@ -37,12 +37,14 @@ body {
 
 	width: 100%;
 	top: 0px;
+	position: fixed;
+	z-index: 100;
 }
 
 .content-box {
 
 	width: 1280px;
-	margin: 75px auto;
+	margin: 175px auto;
 }
 
 p#logo {
@@ -161,6 +163,12 @@ p#logo img {
 	box-shadow: 0px -5px 1px rgb(133, 102, 173) inset;
 }
 
+.headline {
+
+	color: rgb(41,47,51);
+	font-size: 16px;
+}
+
 div#event-div {
 
 	display: block;
@@ -177,7 +185,7 @@ div.event-box {
 	clear: right;
 	margin: 0px 10px 0px 0px;
 	border-radius: 5px;
-	border: 2px solid rgb(219, 221, 224);
+	border: 1px solid rgb(219, 221, 224);
 }
 
 div.event-box p {
@@ -208,6 +216,7 @@ div.event-box p {
 	background-color: white;
 	width: 100%
 	height: 10%;
+	font-size: 16px;
 }
 
 
@@ -288,6 +297,7 @@ hr {
 	margin: margin 10px auto 0 auto;
 }
 
+
 div.featured-column {
 
 	margin: 0px 30px 0px 0px;
@@ -302,13 +312,13 @@ div.featured-event-box {
 	clear: none;
 	width: 100%;
 	margin: 0px auto 30px auto;
+	
 }
 
 div.featured-event-image {
 
 
 	height: auto;
-
 	margin: 0px;
 	border: 0px;
 }
@@ -329,7 +339,8 @@ div.featured-event-text {
 	clear: none;
 	margin: 0px;
 	border: 0px;
-	font-weight: 300;
+	font-weight: 200;
+	font-size: 14px;
 
 }
 
@@ -388,6 +399,7 @@ div.event-host-name {
 		width: 100%;
 		margin: -10px 0 0px -10px;
 		padding: 10px 5px 5px 10px;
+		z-index: 100;
 
 	}
 
@@ -413,6 +425,8 @@ div.event-host-name {
 		border: 0px 0px 1px 0px rgb(133, 102, 173);
 		position: fixed;
 		right: 5px;
+		top: 85px;
+		z-index: 50;
 
 	}
 
@@ -501,8 +515,11 @@ div.event-host-name {
 		margin: 0px auto;
 	}
 
+
 	div.event-box {
 
+		border-width: 2px;
+		margin: 10px 0px;
 		width: 100%;
 	}
 

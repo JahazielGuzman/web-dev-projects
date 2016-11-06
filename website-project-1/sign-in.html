@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+
+			<link rel="stylesheet" type="text/css" href="CSS/sign-in.css">
+			<title>Sign In</title>
+		</head>
+
+		<body>
+			<div id=main-content>
+				<div id=sign-in-container>
+					<div  id=main-content-header>
+						<h3>Sign In</h3>
+					</div>
+
+					<div id=username-with-text-field>
+						<div id=words>
+							<p>Username or E-Mail:</p>
+						</div>
+						<div id=text-field>
+							<input id=user type=text size=35 pattern=".{6}|.{255,}" placeholder="Type your e-mail or username here."></input>
+						</div>
+					</div>
+
+					<div id=password-with-text-field>
+						<div id=words>
+							<p>Password:</p>
+						</div>
+						<div id=text-field>
+							<input id=pw type=text size=30 pattern=".{6}|.{35,}" placeholder="Type your password here."></input>
+						</div>
+						<ul style ="list-style: none;"><li><a href="" onClick="alert('This feature is not functional')">Forgot your password?</a></li></ul>		<!-- Remove onClick when the follow up page is made -->
+					</div>
+					
+					<div id=buttons>
+						<div id=left-button>
+							<div>
+								<a href="eventcreation.html">
+								<button id=lb type="button" >Sign In</button>
+								</a>	<!-- Button currently not functional -->
+							</div>
+						</div>
+
+						<div id=right-button>
+							<div>
+								<a href="sign-up.html"><button id=rb type="button">Don't have an account? Sign up here!</button></a>		<!-- Clicking the button redirects to the sign up page. -->
+							</div>
+						</div>
+					</div>
+				</div> <!-- End of sign-in-container -->
+			</div>	<!-- End of main content -->
+		</body>
+	</html>

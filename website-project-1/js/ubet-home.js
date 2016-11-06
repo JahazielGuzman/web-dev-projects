@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 	var featuredBoxes = document.getElementsByClassName("featured-event-box");
 
+	document.getElementById("featured-box").getElementsByClassName("featured-column")[3].style.margin = "0px";
+
 	// show image-bottom when hover over image-box
 	mouseEventAllElementsIn(imageHover);
 	removeAllImages(featuredBoxes);

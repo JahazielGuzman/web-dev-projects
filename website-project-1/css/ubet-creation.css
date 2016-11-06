@@ -1,0 +1,14 @@
+
+#uploadbox {
+	width: 50%;
+	height: 50%;
+	margin: auto;
+	margin-top: 175px;
+	position: relative;
+}
+#uploadbox img {
+	width: 100%;
+	height: 100%;
+
+}
+

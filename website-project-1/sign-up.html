@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<link rel="stylesheet" type="text/css" href="CSS/sign-up.css">
+
+			<title>Sign Up</title>
+		</head>
+		<body>
+			<div id=main-content>
+				<div id=sign-up>
+					<div  id=main-content-header>
+						<h3>Sign up, it's FREE!</h3>
+					</div>
+
+					<div id=first-last-name>
+						Name:
+						<div id=given-name>
+							<p><input class="textbox" id=firstname type=text size=15 pattern=".{6}|.{255,}" placeholder="First Name"></input></p>
+						</div> 
+						<div id=family-name>
+							<input class="textbox" id=surname type=text size=15 pattern=".{6}|.{255,}" placeholder="Last Name"></input>
+						</div>
+					</div>	<!-- End of first-last-name -->
+
+					<div id=email>
+						Email:
+						<div id=email-text-field>
+							<input class="textbox" type=email size=33 pattern=".{6}|.{35,}" placeholder="Type your E-Mail Address here."></input>
+						</div>
+						<!--<ul><li><a href="" onClick="alert('This feature is currently not functional')">Forgot your password?</a></li></ul>		<!-- Remove onClick when the followup page is made -->
+					</div>	<!-- End of email -->
+
+					<div id=password>
+						Password:
+						<div id=pw1>
+							<input class="textbox" type=password size=33 pattern=".{6}|.{35,}" placeholder="Type your password here."></input>
+						</div>
+						<br/>
+						<div id=pw2>
+							<input class="textbox" type=password size=33 pattern=".{6}|.{35,}" placeholder="Confirm your password here."></input>
+						</div>
+					</div>	<!-- End of password -->
+
+					<div id=birthday>
+						Birthday:
+						<div id=birthday-input>
+							<input class="textbox" type="date" placeholder="Type in your Birthday here."></input>
+						</div>
+					</div>	<!-- Birthday -->
+
+					<div id=gender>
+						<ul>
+							<li>
+								<div id=gender-male>
+									<input type="radio" name="gender" value="male"> Male
+								</div>
+							</li>
+							<li>
+								<div id=gender-female>
+									<input type="radio" name="gender" value="female"> Female
+								</div>
+							</li>
+						</ul>
+					</div>	<!-- End of gender -->
+
+					<div id=buttons>
+						<div id=left-button>
+							<div id=top-button>
+								<a href="eventcreation.html">
+								<button id=top-button type="button" >Sign Up!</button>
+								</a>
+							</div>
+						</div>
+
+						<div id=right-button>
+							<div>
+								<a href="sign-in.html">
+									<button class="textbox" id=bottom-button type="button" >Already have an account? Sign in here!</button>
+								</a>		<!-- Remove onClick when the followup page is made. -->
+							</div>
+						</div>
+					</div>	<!-- End of buttons -->
+				</div>
+			</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
