@@ -2,6 +2,8 @@
 	Wait until the page finishes loading, and then start action
 */
 
+var blurBox = document.getElementById("blur-box");
+
 document.addEventListener("DOMContentLoaded", function(event) { 
   //do work
 
@@ -11,6 +13,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 	var featuredBoxes = document.getElementsByClassName("featured-event-box");
 
+	var mobileMenu = document.getElementsByClassName("subheader")[0];
+
+	if (menuButton.style.display == "block")
+		mobileMenu.style.display = "none";
+
 	document.getElementById("featured-box").getElementsByClassName("featured-column")[3].style.margin = "0px";
 
 	// show image-bottom when hover over image-box
@@ -18,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	removeAllImages(featuredBoxes);
 	if (menuButton)
 		eventListener(menuButton, "click", showMenuOnMobile);
+
 
 });
 
@@ -37,10 +45,40 @@ function mouseOutCallback(target) {
 function showMenuOnMobile() {
 
 	var mobileMenu = document.getElementsByClassName("subheader")[0];
-
+	var topBar = document.getElementsByClassName("header")[0];
+	var menuDisplacement = 0;
+	
 	if (mobileMenu) {
 
 		mobileMenu.style.display = (mobileMenu.style.display === "none") ? "block" : "none";
+		menuDisplacement = topBar.clientHeight - mobileMenu.clientHeight;
+		mobileMenu.style.top =  menuDisplacement + "px";
+
+		var tops = menuDisplacement;
+
+		function dropDown() {
+
+			tops += 20;
+
+			mobileMenu.style.top = tops + "px";
+			console.log(tops);
+
+			if (tops >= 85)
+				clearInterval(drops);
+		}
+
+		function moveUp() {
+
+			tops += 20;
+
+			mobileMenu.style.top = tops + "px";
+			console.log(tops);
+
+			if (tops >= 85)
+				clearInterval(drops);			
+		}
+
+		var drops = setInterval(dropDown, 0.01); 
 	}
 }
 
@@ -72,4 +110,11 @@ function removeAllImages(featuredBoxes) {
 			featuredBoxes[i].getElementsByClassName("featured-event-text")[0].style.width = "100%";
 		}
 	}
+}
+
+
+function enlargeEvent(toShow) {
+
+	blurBox.className = "overlay";
+	toShow.classlist.add("expanded-box");
 }
