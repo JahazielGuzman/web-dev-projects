@@ -1,0 +1,19 @@
+.slide-seeker {
+
+    height: 1px;
+    background-color: black;
+    width: 25%;
+    position: absolute;
+    z-index: 1;
+}
+
+.seek-draggable {
+
+    height: 25px;
+    width: 25px;
+    background-color: orange;
+    border-radius: 100%;
+    margin: 0px auto;
+    position: absolute;
+    z-index: 5;
+}

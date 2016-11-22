@@ -10,7 +10,7 @@ body {
 
 	position: fixed;
 	box-sizing: border-box;
-	background-color: rgb(133, 102, 173);
+	background-color: rgb(224, 36, 94);
 	height: 150px;
 	width: 100%;
 	margin: -10px 0 0px -10px;
@@ -126,6 +126,7 @@ p#logo img {
 	background-color: rgb(252, 252, 252);
 	padding: 20px 40px;	
 	text-align: center;
+	border-bottom: 1px solid rgb(219, 221, 224);
 }
 
 .h-list li {
@@ -260,7 +261,7 @@ div.event-box p {
 #sign-in-text {
 
 	box-sizing: border-box;
-	background-color: rgb(133, 102, 173);
+	background-color: rgb(224, 36, 94);
 	padding: 5% 2% 10% 2%;
 	color: white;
 	font-family: Arial, sans-serif;
@@ -306,7 +307,7 @@ hr {
 
 div.featured-column {
 
-	margin: 0px 30px 0px 0px;
+	margin: 0px 25px 0px 0px;
 	height: auto;
 	border: 0px;
 }
@@ -420,7 +421,7 @@ div.event-host-name {
 	.header {
 
 		box-sizing: border-box;
-		background-color: rgb(133, 102, 173);
+		background-color: rgb(224, 36, 94)
 		height: 100px;
 		width: 100%;
 		margin: -10px 0 0px -10px;
