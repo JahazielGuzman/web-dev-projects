@@ -1,6 +1,11 @@
+var cursorX = -1;
+var playerElem  = null; 
+var drag = null;
+var duration = null;
+
 $(document).ready(function () {
 
-	playerElem = document.getElementById("main-player");
+	
 
 	playing = false;
 	songName = "";
@@ -10,7 +15,10 @@ $(document).ready(function () {
 	songList = [];
 	currTime = null;
 	currDuration = null;
-
+	playerElem = document.getElementById("main-player");
+	drag = document.getElementById("seeker");
+	duration = playerElem.duration;
+	
 	pressPlay(playerElem, playing);
 	seekAudio();
 });
@@ -43,7 +51,10 @@ function pressPlayCallback(playerElem, playing) {
 
 function moveSeek (cursor) {
 
-	console.log("cursor.x +  + cursor.y");
+	cursorX = cursor.x;
+
+	drag.style.left = cursorX + "px"; 
+
 }
 
 function startSeek  () {
@@ -57,15 +68,13 @@ function deregister  () {
 
 	console.log("deregister")
 	document.removeEventListener("mousemove", moveSeek);
-
-	document.removeEventListener("mouseup", deregister);		
+	document.removeEventListener("mouseup", deregister);
+	cursorX = -1;	
 }
 
 
 
 function seekAudio   () {
-
-	var drag = document.getElementById("seeker");
 
 	drag.addEventListener("mousedown", startSeek);
 }
