@@ -9,19 +9,19 @@
 	<link href="css/player-style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-	<audio id="main-player" src="music/steppin-out.mp3" controls></audio>
+	<audio id="main-player"></audio>
 
 	<div>
-		<button id="play-button">play/pause</button>
+		<button id="play-button" name="music/steppin-out.mp3">play/pause</button>
 	</div>
 
-	<div class="player-box">
+	<div class="player-box" id="music-player">
 		<img>
 		<img>
 		<img>
-		<div class="slider">
+		<div class="slider" id="seek-box">
 			<div id="seeker" class="seek-draggable"></div>
-			<hr class="slide-seeker"/>
+			<hr class="slide-seeker" id="slide-bar"/>
 		</div>
 		<img>
 		<img>
