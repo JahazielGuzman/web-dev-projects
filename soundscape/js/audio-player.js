@@ -27,7 +27,7 @@ $(document).ready(function () {
 
 /*
 	take the HTML audio element as playerElem and attach an element to the
-	play button
+	play button so that we either play the selected song, or play/pause the current song
 */
 function pressPlay(playerElem) {
 	
@@ -40,11 +40,18 @@ function pressPlay(playerElem) {
 	});
 }
 
+/*
+	pressPlayCallback takes the playerElem to set the song
+	and play/pause the song. toPlay is the song that will be played
+	on the playerElem audio element.
+*/
 function pressPlayCallback(playerElem, toPlay) {
 
+	// get the name of the song with all extensions removed
 	var songName = playerElem.src.split("/");
 	songName = "music/" + songName[songName.length - 1];
 
+	// if the song toPlay is not the one already on the player then set it and reset the seeker
 	if(songName != toPlay) {
 		playerElem.src = toPlay;
 		duration = playerElem.duration;
@@ -52,13 +59,12 @@ function pressPlayCallback(playerElem, toPlay) {
 		
 
 		if (seekerElem.style.left != "0px" || seekerElem.style.left != "")
-			seekerElem.style.left = slideBarElem.getBoundingClientRect().left + "px";;
+			seekerElem.style.left = "0px";
 	}
 
-	songName = playerElem.src.split("/");
+	songName = playerElem.src.split("/")
 	songName = songName[songName.length - 1];
-
-	console.log(songName);
+	songName = songName.split(".")[0];
 
 	var slideBarElemWidth = document.getElementById("slide-bar").getBoundingClientRect().width;
 
@@ -91,7 +97,7 @@ function moveSeekOverTime() {
 	if (playerElem.currentTime == playerElem.duration) {
 
 		clearInterval(seekAnimation);
-		seekerElem.style.left = slideBarElem.getBoundingClientRect().left + "px";
+		seekerElem.style.left = "0px";
 	}
 		
 }
@@ -108,7 +114,7 @@ function setSeekPos (cursor) {
 	else
 		cursorX = cursor.x;
 
-	seekerElem.style.left = cursorX + "px";
+	seekerElem.style.left = (cursorX - xMin) + "px";
 
 	if (playerElem.duration) {
 
@@ -125,6 +131,7 @@ function setSeekPos (cursor) {
 function startSeek  () {
 
 	document.addEventListener("mousemove", setSeekPos);
+
 	document.addEventListener("mouseup", deregister);
 }
 

@@ -6,11 +6,32 @@
     padding: 20px 20px;
 }
 
-.slider {
+.player-body {
+
+    width: 50%;
+    margin: 0px auto;
+}
+
+.player-body > div {
+
+    position: relative;
+}
+
+.audio-control-box {
+
+    width: 25%;
+}
+
+.audio-control-box img{
 
     width: 30%;
+    height: 100%;
+}
+
+.slider {
+
+    width: 50%;
     margin: 0px auto;
-    position: relative;
 }
 
 .slide-seeker {
