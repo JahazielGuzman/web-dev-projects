@@ -1,46 +1,90 @@
 <?php 
+	
+	header('Access-Control-Allow-Origin: *');
 
-	/*
+	// create a switch to determine whether an error/invalid data has been encountered
+	$didFail = false;
+
+	// ensure password and confirmation are the same
+	if ($_POST["password"] != $_POST["confirmpassword"])
+		$didFail = true;
+
 	$userData = array(
 		$_POST['username'],
 		$_POST["password"],
 		$_POST["email"],
-		$_POST["date-of-birth"],
+		$_POST["dateofbirth"],
 		$_POST["gender"],
-		$_POST["credit-card"],
-		$_POST["expiraton-date"],
-		$_POST["month"],
-		$_POST["year"],
-		$_POST["security-code"],
-		$_POST["zip-code"],
-		$_POST["confirm-password"]
+		$_POST["subtype"]
 	);
+
+	$queryString = "INSERT INTO userdata (username, pass, email, dob, gender, subtype";
+	
+	if ($_POST["subtype"] == "paid") {
+
+		
+		$userData += array(
+			$_POST["creditcard"],
+			$_POST["month"],
+			$_POST["year"],
+			$_POST["securitycode"],
+			$_POST["postalcode"]
+		);
+
+		$queryString += ", cardnum, expmonth, expyear, securitycode, postalcode)";
+	}
+
+	else {
+
+		$queryString += ')';
+	}
+
+	$queryString += " VALUES (";
+	$queryString = addQueryParams($userData, $queryString);
+
+	foreach ($userData as $datum) {
+
+		if (!isset($datum)) {
+			$didFail = true;
+		}
+	}
 
 	// clean each input variable
 	foreach ($userData as &$datum) {
 
 		$datum = mysql_real_escape_string($datum);
 	}
+
+	require('connect.php');
+
+
+	$query = $dbconn->prepare($queryString);
+	$result = $query->execute($userData);
+
+	while ($r = $result->fetch(PDO::FETCH_OBJ)) {
+
+		echo $r->username . " " . r->password . " " . r->city . " " . "<br />";
+	}
+
+	if ($didFail)
+		die("error");
+
+	/* the funciton addQueryParams will input a array $params of parameters and
+		the query string $queryString that will be used to query the database, it will add
+		a parameter to the query string for each element in the $params array. The query string
+		will be returned so it can be used as a prepared statement in PDO
 	*/
+	function addQueryParams($params, $qString) {
 
-	$user = 'root';
-	$password = 'root';
-	$db = 'SoundScape';
-	$host = 'localhost';
-	$port = 8889;
+		$numParams = count($params);
 
-	// initialize the database to insert the users data
-	//$dbConnection = new PDO("mysql:host=127.0.0.1;dbname=". $db, $username, s$password);
-	echo "hello dogg";
+		for ($i = 0; $i < $numParams; $i ++) {
 
-	try {
+			$qString += "?,";
+		}
 
+		$qString = substr($qString, 0, count($qString) - 2) + ')';
+
+		return $qString;
 	}
-
-	catch() {
-
-	}
-	// prepare the que ry
-
-	// bind the variables to the query
 ?>

@@ -1,0 +1,108 @@
+@import url(https://fonts.googleapis.com/css?family=Gruppo|Open+Sans|Poppins|Quicksand|Roboto);
+
+.padding-top-10{
+	padding-top: 10px;
+}
+body{
+	background-color: #191919;
+	font-family: 'Quicksand';
+	margin:0;
+}
+* {
+  box-sizing: border-box;
+}
+.navbar {
+	padding: 20px 15px 20px 30px;
+	border: 0;
+	border-radius: 0;
+	margin-bottom: 0;
+	font-size: 12px;
+	letter-spacing: 5px;
+	background-color: #191919;
+}
+.navbar-brand
+ .container-fluid {
+	padding-top: 40px;
+	padding-bottom: 40x;
+}
+.navbar-brand{
+ 	font-size: 18px;
+}
+#logo{  
+	color: #4CD1E0;
+	font-family: 'Gruppo';
+	text-transform: uppercase;
+}
+#container2{
+	background-color: #191919;
+	color: #efefef;
+	padding: 1.5em 3em 2em;
+	margin-top: 5em;
+	margin-bottom: 5em;
+	max-width: 750px;
+	border-radius: 0.4em;
+}
+p {
+	font-size: 1em;
+}
+.panel-heading p{
+	font-size: 1.2em;
+	margin-bottom: 0;
+}
+.form-control {
+	background-color: #1d2123;
+	color: white;
+	border: 2px solid #40484d;
+	font-size: 1em;
+}
+input[type=date] {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1em;
+  color: gray;
+  border-radius: 0.3em;
+  border: 2px solid #40484d;
+  background-color: #1d2123;
+}
+
+
+label {
+	font-size: 1em;
+}
+#about {
+	max-width: 666px;
+}
+input[type=email], input[type=text], input[type=password], input[type=date], #about {
+	transition: border-color 0.30s ease-in-out;
+	outline: none;
+	padding: 3px 0px 3px 3px;
+	margin: 5px 1px 3px 0px;
+}
+input[type=email]:hover, input[type=text]:hover, input[type=password]:hover, input[type=date]:hover, #about:hover {
+	box-shadow: 0 0 5px #436000;
+	padding: 3px 0px 3px 3px;
+	margin: 5px 1px 3px 0px;
+	border: 2px solid #436000;
+}
+input[type=email]:focus, input[type=text]:focus, input[type=password]:hover, input[type=date]:hover, #about:focus {
+	box-shadow: 0 0 5px #79AC00;
+	padding: 3px 0px 3px 3px;
+	margin: 5px 1px 3px 0px;
+	border: 2px solid #79AC00;
+}
+.btn {
+	background-color: #79AC00;
+	color: #444444;
+	font-size: 1em;
+	transition: all 0.15s ease-in-out;
+}
+.btn:hover, .btn:active, .btn:focus {
+	background-color: #8bc600;
+	color: #444444;
+	outline: 0 !important;
+}
+::selection {
+	background-color: #79AC00;
+}
+.panel-body{
+	background-color: #191919;
+}

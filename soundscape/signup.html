@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title></title>
+
+		<meta charset="UTF-8">
+		 
+		<!-- If IE use the latest rendering engine -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		 
+		<!-- Set the page to the width of the device and set the zoon level -->
+		<meta name="viewport" content="width = device-width, initial-scale = 1">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
+	</head>
+	<body>
+		<nav class="navbar navbar-default">
+		    <div class="container-fluid" id="container1">
+		      <div class="navbar-header">
+		        <button class="navbar-toggle" data-target="#myNavbar" data-toggle="collapse" type="button"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> 
+		        <a class="navbar-brand" href="#" id="logo" >SoundScape</a>
+		      </div>
+		      <div class="collapse navbar-collapse" id="myNavbar">
+		        <ul class="nav navbar-nav navbar-right">
+		          <li><a href="#">music</a></li>
+		          <li><a href="#">Sign Up</a></li>
+		          <li><a href="#"><span class="icon-person-outline"></span>&nbsp;Login</a></li>
+		        </ul>
+		      </div>
+		    </div>
+		  </nav><!--end navbar -->
+
+
+		<script type="text/javascript">
+
+			$(document).ready(function () {
+			
+				$('#submit').on("click", function (event) {
+
+					event.preventDefault();
+					var form = $('#sign-up-form')
+					var formData = form.serialize();
+
+					$.ajax({
+					        type:"POST",
+					        url:form.attr("action"),
+					        data:formData,
+					        success: function(response){
+					            console.log(response);  
+					        }
+					});
+
+				});
+			});
+		</script>
+
+
+		<div class="container padding-top-10" id="container2">
+			<div class="panel panel-default">
+				<div class="panel-heading"><p class="text-center">Sign Up</p></div>
+				<div class="panel-body">
+					<form action="http://localhost:8888/php/sign_up.php" id="sign-up-form" name="signupform">
+						<div class="row">
+							<div class="col-md-12 padding-top-10">
+								<label for="username" class="control-label">Username:</label>
+								<input type="text" class="form-control" name="username" id="username" placeholder="Username"/>
+							</div>
+						</div> <!--end row-->
+						<div class="row">
+							<div class="col-md-6 padding-top-10">
+								<label for="password" class="control-label" >Password:</label>
+								<input type="password" class="form-control" name="password" id="password" placeholder="Enter your password" />
+							</div>
+							<div class="col-md-6 padding-top-10">
+								<label for="confirmpassword" class="control-label">Confirm Password:</label>
+								<input type="password" class="form-control" id="confirmpassword" name="confirmpassword" placeholder="Confirm your password" />
+							</div>
+						</div> <!--end row-->
+						<div class="row">
+							<div class="col-md-12 padding-top-10">
+								<label for="email" class="control-label">Email:</label>
+								<input type="text" class="form-control" name="email" id="email" placeholder="human@email.com"/>
+							</div>
+						</div> <!--end row-->
+						<div class="row">
+							<div class="col-xs-12 padding-top-10">
+								<label for="month" class="control-label">Date of Birth:</label>
+								<input type="date" name="bday" name="dob" id="dob">
+							</div>
+						</div> <!--end row-->
+						<div class="row">
+							<div class="col-md-2 padding-top-10">
+								<button type="button" class="btn btn-success" id="submit">Submit</button>
+							</div>
+						</div> <!--end row-->		
+					</form>
+				</div> <!--end panel-body-->
+			</div> <!--end panel panel-default-->
+		</div> <!--end container padding-top-10-->
+	</body>
+</html>
