@@ -1,6 +1,5 @@
 <?php 
 	
-	header('Access-Control-Allow-Origin: *');
 
 	// create a switch to determine whether an error/invalid data has been encountered
 	$didFail = false;
@@ -13,14 +12,14 @@
 		$_POST['username'],
 		$_POST["password"],
 		$_POST["email"],
-		$_POST["dateofbirth"],
-		$_POST["gender"],
-		$_POST["subtype"]
+		$_POST["dob"],
+		//$_POST["gender"],
+		//$_POST["subtype"]
 	);
 
-	$queryString = "INSERT INTO userdata (username, pass, email, dob, gender, subtype";
+	$queryString = "INSERT INTO userdata (username, pass, email, dob";
 	
-	if ($_POST["subtype"] == "paid") {
+	if (isset($_POST["subtype"]) && $_POST["subtype"] == "paid") {
 
 		
 		$userData += array(
@@ -61,13 +60,17 @@
 	$query = $dbconn->prepare($queryString);
 	$result = $query->execute($userData);
 
-	while ($r = $result->fetch(PDO::FETCH_OBJ)) {
+	while ($r = $result->fetch(PDO::FETCH_ASSOC)) {
 
-		echo $r->username . " " . r->password . " " . r->city . " " . "<br />";
+		echo $r["username"] . " " . $r["password"] . " " . $r["city"] . " " . "<br />";
 	}
 
 	if ($didFail)
 		die("error");
+	else {
+
+		echo "success";
+	}
 
 	/* the funciton addQueryParams will input a array $params of parameters and
 		the query string $queryString that will be used to query the database, it will add
