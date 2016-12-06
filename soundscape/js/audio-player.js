@@ -31,13 +31,18 @@ $(document).ready(function () {
 */
 function pressPlay(playerElem) {
 	
-	var butt = document.getElementById("play-button");
-	var song = butt.name;
+	var playButtons = document.getElementsByClassName("play-button");
+	var song = null;
 	
-	butt.addEventListener("click", function () {
-	
-		pressPlayCallback(playerElem, song);
-	});
+	for (var i = 0; i < playButtons.length; i ++) {
+
+		song = playButton.name;
+
+		playButtons[i].addEventListener("click", function () {
+		
+			pressPlayCallback(playerElem, song);
+		});
+	}
 }
 
 /*
@@ -55,6 +60,15 @@ function pressPlayCallback(playerElem, toPlay) {
 	if(songName != toPlay) {
 		playerElem.src = toPlay;
 		duration = playerElem.duration;
+		
+		/* get the event to which the click event was attached to, and obtain the 3 elements with the song-info class within it.
+		The 3 sequantial song-info elements will hold the songCover, songName, and songArtist values. */
+
+		var songInfoElems = event.currentTarget.parentNode.getElementsByClassName("song-info");
+
+		songCoverElem.src = songInfoElems[0].innerText;
+		artistName.innerText = songInfoElems[0].innerText;
+		songName.innerText = songInfoElems[0].innerText;
 
 		
 
@@ -148,11 +162,6 @@ function seekAudio   () {
 
 	seekerElem.addEventListener("mousedown", startSeek);
 }
-
-
-
-
-
 
 
 
