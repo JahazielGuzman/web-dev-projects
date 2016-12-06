@@ -34,35 +34,14 @@
 		  </nav><!--end navbar -->
 
 
-		<script type="text/javascript">
-
-			$(document).ready(function () {
-			
-				$('#submit').on("click", function (event) {
-
-					event.preventDefault();
-					var form = $('#sign-up-form')
-					var formData = form.serialize();
-
-					$.ajax({
-					        type:"POST",
-					        url:form.attr("action"),
-					        data:formData,
-					        success: function(response){
-					            console.log(response);
-					        }
-					});
-
-				});
-			});
-		</script>
+		<script type="text/javascript" src="js/sign-up-processing.js"></script>
 
 
 		<div class="container padding-top-10" id="container2">
 			<div class="panel panel-default">
 				<div class="panel-heading"><p class="text-center">Sign Up</p></div>
 				<div class="panel-body">
-					<form action="http://localhost:8888/php/sign_up.php" id="sign-up-form" name="signupform">
+					<form action=" php/sign_up.php" id="sign-up-form" name="signupform">
 						<div class="row">
 							<div class="col-md-12 padding-top-10">
 								<label for="username" class="control-label">Username:</label>
