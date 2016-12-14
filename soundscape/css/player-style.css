@@ -9,7 +9,7 @@
 
 .player-body {
 
-    width: 65%;
+    width: 80%;
     margin: 0px auto;
     height: 50px;
 }
@@ -52,7 +52,7 @@
 
     width: 20px;
     height: 20px;
-    margin: 0px auto;
+    margin-left: 25px;
 }
 
 .slider {
@@ -82,6 +82,11 @@
     z-index: 5;
 }
 
+.current-song-information {
+
+    width: 20%;
+}
+
 .current-song-information > * {
 
     float: left;
@@ -92,4 +97,32 @@
 
     font-size: 14px;
     margin: 0px;
+}
+
+.song-information-text {
+    margin-left: 5px;
+}
+
+.song-info {
+
+    display: none;
+}
+
+#playlist-name {
+
+    margin-top: -5px;
+    margin-bottom: 2px;
+}
+
+.song-box {
+
+    width: 200px;
+    height: 200px;
+    background-color: red;
+}
+
+.cover-art {
+
+    width: 100%;
+    height: 100%;
 }

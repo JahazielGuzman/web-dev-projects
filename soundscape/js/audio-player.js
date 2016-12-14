@@ -6,6 +6,9 @@ var duration = null;
 var seekAnimation = null;
 var seekerElem = null;
 var slideBarElem = null;
+var artistName;
+var coverArt;
+var songName;
 
 $(document).ready(function () {
 
@@ -32,14 +35,13 @@ $(document).ready(function () {
 function pressPlay(playerElem) {
 	
 	var playButtons = document.getElementsByClassName("play-button");
-	var song = null;
-	
+	console.log(playButtons);
 	for (var i = 0; i < playButtons.length; i ++) {
 
-		song = playButton.name;
 
-		playButtons[i].addEventListener("click", function () {
+		playButtons[i].addEventListener("click", function (event) {
 		
+			var song = event.currentTarget.name;
 			pressPlayCallback(playerElem, song);
 		});
 	}
@@ -65,10 +67,12 @@ function pressPlayCallback(playerElem, toPlay) {
 		The 3 sequantial song-info elements will hold the songCover, songName, and songArtist values. */
 
 		var songInfoElems = event.currentTarget.parentNode.getElementsByClassName("song-info");
+		artistName = document.getElementById("playlist-name");
+		songName = document.getElementById("song-name");
 
-		songCoverElem.src = songInfoElems[0].innerText;
-		artistName.innerText = songInfoElems[0].innerText;
-		songName.innerText = songInfoElems[0].innerText;
+		//songCoverElem.src = songInfoElems[0].innerText;
+		artistName.innerText = songInfoElems[1].innerText;
+		songName.innerText = songInfoElems[2].innerText;
 
 		
 
