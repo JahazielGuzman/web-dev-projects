@@ -17,9 +17,9 @@
 		//$_POST["subtype"]
 	);
 
-	$queryString = "INSERT INTO userdata (username, pass, email, dob";
+	$queryString = "INSERT INTO user (username, pass, email, dob";
 	
-	if (isset($_POST["subtype"]) && $_POST["subtype"] == "paid") {
+	if (isset($_POST["acctype"]) && $_POST["acctype"] == "Premium") {
 
 		
 		$userData += array(
@@ -80,7 +80,7 @@
 	function addQueryParams($params, $qString) {
 
 		$numParams = count($params);
-
+  
 		for ($i = 0; $i < $numParams; $i ++) {
 
 			$qString += "?,";

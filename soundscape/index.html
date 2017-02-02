@@ -4,18 +4,17 @@
 	<title>
 		jammin
 	</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="js/audio-player.js" type="text/javascript"></script>
 	<link href="css/player-style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 
 
 	<div class="song-list">
-		<div class="song-box">
+		<div class="song-box" >
+			<a class="play-button" data-artist="unknown" data-title="steppin out" data-audio="music/steppin-out.mp3">
+				<img src="images/play.png">
+			</a>
 			<img class="song-info cover-art">
-			<span class="song-info">unknown</span>
-			<span class="song-info">steppin out</span>
 		</div>
 	</div>
 
@@ -24,7 +23,7 @@
 		<div class="player-body">
 			<div class="audio-control-box">
 				<img src="images/back.png">
-				<a class="play-button" name="music/steppin-out.mp3"><img src="images/play.png"></a>
+				<a id="main-play-button" class="play-button" name="music/steppin-out.mp3"><img src="images/play.png"></a>
 				<img src="images/forward.png">
 				<span class="song-info"><img src=""></span>
 				<span class="song-info">unknown</span>
@@ -53,6 +52,7 @@
 			</div>
 		</div>
 	</div>
-
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/audio-player.js"></script>
 </body>
 </html>

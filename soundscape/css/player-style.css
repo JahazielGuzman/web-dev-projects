@@ -77,7 +77,7 @@
     width: 15px;
     background-color: orange;
     border-radius: 100%;
-    margin: 0px auto;
+    margin: 4px auto 0px auto;
     position: absolute;
     z-index: 5;
 }
@@ -118,7 +118,7 @@
 
     width: 200px;
     height: 200px;
-    background-color: red;
+    background-color: orange;
 }
 
 .cover-art {

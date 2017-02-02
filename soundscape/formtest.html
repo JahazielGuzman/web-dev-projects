@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>
+			multiform upload test
+		</title>
+	</head>
+	<body>
+		<form id="my-form" method="POST" enctype="multipart/form-data" action="helloworld.php">
+		  <input id="my-file" type="file" name="files[]" multiple>
+		  <input id="my-sub" type="submit" name="upload">
+		</form>
+		<div id="output"></div>
+		<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function () {
+
+				var sub = document.getElementById('my-sub');
+				var form = document.getElementById("my-form");
+
+				form.addEventListener("submit", function(event) {
+
+					event.preventDefault();
+					var formz = new FormData();
+					var inp = document.getElementById('my-file');
+					
+					for (var i = 0; i < inp.files.length; i ++)
+						formz.append('files[]', inp.files[i]);
+					
+					var ajax = new XMLHttpRequest();
+
+					ajax.open('POSt', 'http://localhost/soundscape/helloworld.php');
+					ajax.onload = function () {
+
+						document.getElementById('output').innerHTML = this.responseText;
+					}
+					ajax.send(formz);
+
+				});
+
+
+			});
+		</script>
+	</body>
+</html>

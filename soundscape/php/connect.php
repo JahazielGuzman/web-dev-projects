@@ -2,8 +2,8 @@
 
 	$username = 'root';
 	$password = 'root';
-	$dbname = 'SoundScape';
-	$host = 'localhost';
+	$dbname = 'soundscape';
+	$host = 'localhost:8889';
 
 	// initialize the database to insert the users data
 	//	$dbConnection = new PDO("mysql:host=localhost:8888;dbname=". $db, $username, $password);

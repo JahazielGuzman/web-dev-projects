@@ -1,49 +1,38 @@
 // set up variable necessary to operate music player
 var cursorX = -1;
 var playerElem  = null; 
-var drag = null;
 var duration = null;
 var seekAnimation = null;
-var seekerElem = null;
-var slideBarElem = null;
-var artistName;
-var coverArt;
-var songName;
-
-$(document).ready(function () {
-
-	songName = "";
-	coverArt = "";
-	artistName = "";
-	currPos = 0;
-	songList = [];
-	currTime = null;
-	currDuration = null;
-	playerElem = document.getElementById("main-player");
+var title = "";
+var artistName = "";
+var currPos = 0;
+var songList = [];
+var playerElem = document.getElementById("main-player");
 	playerElem.src = "";
-	seekerElem = document.getElementById("seeker");
-	slideBarElem = document.getElementById("slide-bar");
-	
-	pressPlay(playerElem);
-	seekAudio();
-});
+var seekerElem = document.getElementById("seeker");
+var slideBarElem = document.getElementById("slide-bar");
+var slideBarElemWidth = document.getElementById("slide-bar").getBoundingClientRect().width;
+var artistName = document.getElementById("playlist-name");
+var songName = document.getElementById("song-name");
+var main_play_button = document.getElementById("main-play-button");
+
+activatePlayButtons();
+playerElem.addEventListener('play', startAnimation)
+playerElem.addEventListener('loadedmetadata', startAnimation);
+main_play_button.addEventListener("click", pauseOrPlay);
+seekAudio();
 
 /*
 	take the HTML audio element as playerElem and attach an element to the
 	play button so that we either play the selected song, or play/pause the current song
 */
-function pressPlay(playerElem) {
+function activatePlayButtons() {
 	
 	var playButtons = document.getElementsByClassName("play-button");
 	console.log(playButtons);
 	for (var i = 0; i < playButtons.length; i ++) {
 
-
-		playButtons[i].addEventListener("click", function (event) {
-		
-			var song = event.currentTarget.name;
-			pressPlayCallback(playerElem, song);
-		});
+		playButtons[i].addEventListener("click", playSong);
 	}
 }
 
@@ -52,67 +41,66 @@ function pressPlay(playerElem) {
 	and play/pause the song. toPlay is the song that will be played
 	on the playerElem audio element.
 */
-function pressPlayCallback(playerElem, toPlay) {
+function playSong(event) {
 
-	// get the name of the song with all extensions removed
-	var songName = playerElem.src.split("/");
-	songName = "music/" + songName[songName.length - 1];
+	var songInfo = event.currentTarget.dataset;
+	var audio = songInfo.audio;
+	var artist = songInfo.artist;
+	var title = songInfo.title;
+	var btImg = event.target;
+	btImg.src = "images/pause.png";
 
 	// if the song toPlay is not the one already on the player then set it and reset the seeker
-	if(songName != toPlay) {
-		playerElem.src = toPlay;
+	if(title != audio) {
+		playerElem.src = audio;
 		duration = playerElem.duration;
-		
-		/* get the event to which the click event was attached to, and obtain the 3 elements with the song-info class within it.
-		The 3 sequantial song-info elements will hold the songCover, songName, and songArtist values. */
-
-		var songInfoElems = event.currentTarget.parentNode.getElementsByClassName("song-info");
-		artistName = document.getElementById("playlist-name");
-		songName = document.getElementById("song-name");
+		playerElem.play();
 
 		//songCoverElem.src = songInfoElems[0].innerText;
-		artistName.innerText = songInfoElems[1].innerText;
-		songName.innerText = songInfoElems[2].innerText;
-
+		artistName.innerText = artist;
+		songName.innerText = title;
 		
-
+		// if the seeker is not currently at the beginning
 		if (seekerElem.style.left != "0px" || seekerElem.style.left != "")
 			seekerElem.style.left = "0px";
 	}
 
-	songName = playerElem.src.split("/")
-	songName = songName[songName.length - 1];
-	songName = songName.split(".")[0];
+	else {
+		playerElem.play();
+	}
+}
 
-	var slideBarElemWidth = document.getElementById("slide-bar").getBoundingClientRect().width;
+// when the player presses the seekers play button, 
+// this function will either pause or play the current track
+function pauseOrPlay() {
 
 	if (!playerElem.paused) {
 		playerElem.pause();
+		buttonImage.src = "images/pause.png";
 		clearInterval(seekAnimation);
 	}
 	else {
 		playerElem.play();
-
-		if (playerElem.duration)
-			seekAnimation = setInterval(moveSeekOverTime, (playerElem.duration * 1000) / slideBarElemWidth);
-
-		else {	
-		
-			playerElem.addEventListener('loadedmetadata', function() {
-			    seekAnimation = setInterval(moveSeekOverTime, (playerElem.duration * 1000) / slideBarElemWidth);
-			});
-		}
-											
+		buttonImage.src = "images/play.png";
 	}
 }
 
+// begin moving the slider to show song progress
+function startAnimation() {
+
+	if (playerElem.duration)
+		seekAnimation = setInterval(moveSeekOverTime, (playerElem.duration * 1000) / slideBarElemWidth);	
+}
+
+// this is the animation that will be executed to move
+// the seeker
 function moveSeekOverTime() {
 
 	var parsed = parseInt(seekerElem.style.left.substr(0, seekerElem.style.left.length - 2))
 
 	seekerElem.style.left = (parsed + 1) + "px";
 
-	if (playerElem.currentTime == playerElem.duration) {
+	if (playerElem.currentTime == playerElem.duration || playerElem.paused) {
 
 		clearInterval(seekAnimation);
 		seekerElem.style.left = "0px";
@@ -120,6 +108,7 @@ function moveSeekOverTime() {
 		
 }
 
+// this function responds to user input when user wants to drag the seeker
 function setSeekPos (cursor) {
 
 	var xMin = slideBarElem.getBoundingClientRect().left;
@@ -159,8 +148,6 @@ function deregister  () {
 	document.removeEventListener("mousemove", setSeekPos);
 	document.removeEventListener("mouseup", deregister);
 }
-
-
 
 function seekAudio   () {
 

@@ -1,0 +1,41 @@
+
+.error-dialogue {
+  height: 300px;
+  width: 250px;
+  overflow: auto;
+  padding: 5px;
+  color: white;
+  position: absolute;
+  display: none;
+}
+.error-dialogue div {
+  margin: 0px;
+}
+
+.error-message-div {
+  border-radius: 10px;
+}
+.error-message-div p {
+  margin: 0px;
+  padding: 10px;
+}
+
+.triangle {
+  height: 15px;
+  width: 15px;
+  box-sizing: border-box;
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  border-bottom: 15px solid #bc1616;
+  border-right: 15px solid transparent;
+  border-left: 15px solid transparent;
+  border-top: 15px solid transparent;
+}
+
+.error-message-div {
+  background-color: #bc1616;
+  top: 20px;
+  position: absolute;
+  box-shadow: 1px 2px 5px black;
+}

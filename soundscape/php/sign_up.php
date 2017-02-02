@@ -4,9 +4,6 @@
 	// create a switch to determine whether an error/invalid data has been encountered
 	$didFail = false;
 
-	$_POST["gender"] = "M";
-	$_POST["acctype"] = "free";
-
 	// ensure password and confirmation are the same
 	if ($_POST["pass"] != $_POST["confirmpass"])
 		$didFail = true;
@@ -17,17 +14,16 @@
 		$_POST["email"],
 		$_POST["dob"],
 		$_POST["gender"],
-		$_POST["acctype"],
-		"salty-mc"
+		$_POST["acctype"]
 	);
-
-	$queryString = "INSERT INTO userdata (username, pass, email, dob, gender, acctype, salt";
+	
+	$queryString = "INSERT INTO users (username, pass, email, dob, gender, acctype";
 
 	
-	if ($_POST["acctype"] == "paid") {
+	if ($_POST["acctype"] == "Premium") {
 
 		
-		$userData .= array(
+		$userData += array(
 			$_POST["cardnum"],
 			$_POST["expmonth"],
 			$_POST["expyear"],
@@ -45,10 +41,7 @@
 	}
 
 	$queryString .= " VALUES (";
-
-	
 	$queryString = addQueryParams($userData, $queryString);
-
 	foreach ($userData as $datum) {
 
 		if (!isset($datum)) {
