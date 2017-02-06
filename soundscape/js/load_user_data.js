@@ -12,6 +12,19 @@ function ajaxGet(url, processDataFunc) {
 	}
 }
 
+function ajaxPost(url, processDataFunc) {
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET", url);
+	xhr.send();
+
+	// display the user data on the page once it is recieved
+	xhr.onload = function () {
+
+		var json_data = JSON.parse(xhr.responseText);
+		processDataFunc(json_data);
+	}
+}
+
 // set user data on profile page
 function processUserInfoFunc(user_data) {
 
@@ -32,11 +45,12 @@ function showUserSongs(user_songs) {
 	for (let i = 0; i < user_songs.length; i ++) {
 		user_song_html += "<div><img src='" + user_songs.cover + "'><span>" + 
 		  user_songs.title + "</span><span>" + user_songs.artist + "</span><span>" +
-		    user_songs.song_length + "</span>";
+		    user_songs.song_length + "</span></div>";
 	}
 	document.getElementById("main-content").innerHTML = user_song_html;
 }
 
+music_panel.addEventListener("click", getSongs);
 // query the database for the songs for the current profile being viewed
 function getUserSongs() {
 
@@ -47,4 +61,3 @@ function getUserSongs() {
 var music_panel = document.getElementById("music-panel");
 
 ajaxGet("/php/getUserInfo.php", processUserInfoFunc);
-music_panel.addEventListener("click", getSongs);

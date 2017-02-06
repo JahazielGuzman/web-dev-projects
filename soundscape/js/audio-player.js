@@ -15,6 +15,7 @@ var slideBarElemWidth = document.getElementById("slide-bar").getBoundingClientRe
 var artistName = document.getElementById("playlist-name");
 var songName = document.getElementById("song-name");
 var main_play_button = document.getElementById("main-play-button");
+var main_play_image = document.getElementById("main-play-image");
 
 activatePlayButtons();
 playerElem.addEventListener('play', startAnimation)
@@ -72,22 +73,24 @@ function playSong(event) {
 
 // when the player presses the seekers play button, 
 // this function will either pause or play the current track
-function pauseOrPlay() {
+function pauseOrPlay(event) {
 
+	console.log("enter pauseOrPlay" + playerElem.paused);
 	if (!playerElem.paused) {
 		playerElem.pause();
-		buttonImage.src = "images/pause.png";
+		main_play_image.src = "images/play.png";
 		clearInterval(seekAnimation);
 	}
 	else {
 		playerElem.play();
-		buttonImage.src = "images/play.png";
+		console.log("play");
 	}
 }
 
 // begin moving the slider to show song progress
 function startAnimation() {
 
+	main_play_image.src = "images/pause.png";
 	if (playerElem.duration)
 		seekAnimation = setInterval(moveSeekOverTime, (playerElem.duration * 1000) / slideBarElemWidth);	
 }
@@ -138,7 +141,6 @@ function setSeekPos (cursor) {
 function startSeek  () {
 
 	document.addEventListener("mousemove", setSeekPos);
-
 	document.addEventListener("mouseup", deregister);
 }
 

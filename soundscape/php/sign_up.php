@@ -1,6 +1,6 @@
 <?php 
 	
-
+	session_start();
 	// create a switch to determine whether an error/invalid data has been encountered
 	$didFail = false;
 
@@ -75,7 +75,9 @@
 		die("error");
 	else {
 
-		echo "success";
+		$_SESSION["current_user"] = $userData[0];
+		header( 'Location: ../playerprofile.php' );
+
 	}
 
 	/* the funciton addQueryParams will input a array $params of parameters and
